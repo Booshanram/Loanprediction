@@ -40,7 +40,7 @@ file = './Model/ML_Model1.pkl'with open(file, 'wb') as f:
 with open(file, 'rb') as f:
     k = pickle.load(f)
 print(cy)
-
+``
 import streamlit as st
 from PIL import Image
 import pickle
