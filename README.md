@@ -1,108 +1,39 @@
-# Loanprediction
-``
-import pandas as pd
-import numpy as np
-import osos.chdir('D:/Loan-Prediction-Classification')
-train=pd.read_csv('./Loan_Data/train.csv')
-train.Loan_Status=train.Loan_Status.map({'Y':1,'N':0})
-Loan_status=train.Loan_Statustrain.drop('Loan_Status',axis=1,inplace=True)
-test=pd.read_csv('./Loan_Data/test.csv')
-Loan_ID=test.Loan_ID
-data=train.append(test)data.head()
-data.isnull().sum()
-data.Dependents.dtypes
+##  Bank Loan Prediction System using Streamlit
 
- data.Dependents=data.Dependents.map({'0':0,'1':1,'2':2,'3+':3})
-data.Dependents.value_counts()
+[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)                 
+[![Python 3.6](https://img.shields.io/badge/python-3.6-blue.svg)](https://www.python.org/downloads/release/python-360/)   
 
-train_X=data.iloc[:614,]
-train_y=Loan_status
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.svm import SVC
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.naive_bayes import GaussianNB
-from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
-from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import KFold from sklearn.model_selection import cross_val_scoreresult=[]names=[]
-for name,model in models:
-    kfold=KFold(n_splits=10,random_state=0)
-    cv_result=cross_val_score(model,train_X,train_y,cv=kfold,scoring=scoring)
-    result.append(cv_result)
-    names.append(name)
-    print(model)
-    print("%s %f" % (name,cv_result.mean()))
-prediction = LR.predict(X_test)
-print(prediction)
-import pickle 
-file = './Model/ML_Model1.pkl'with open(file, 'wb') as f:
-    pickle.dump(svc, f)
-with open(file, 'rb') as f:
-    k = pickle.load(f)
-print(cy)
-``
-import streamlit as st
-from PIL import Image
-import pickle
-model = pickle.load(open('./Model/ML_Model.pkl', 'rb'))
-def run():
-    img1 = Image.open('bank.png')
-    img1 = img1.resize((156,145))
-    st.image(img1,use_column_width=False)
-    st.title("Bank Loan Prediction using Machine Learning")
-    ## Account No
-    account_no = st.text_input('Account number')
-    ## Full Name
-    fn = st.text_input('Full Name')
+## [Watch Tutorial for this project](https://youtu.be/j54AZjqmCjI)
+<img src="https://github.com/Spidy20/Streamlit_Bank_Loan_Prediction/blob/master/yt_thumbnai.jpg">
 
-    ## For gender
-    gen_display = ('Female','Male')
-    gen_options = list(range(len(gen_display)))
-    gen = st.selectbox("Gender",gen_options, format_func=lambda x: gen_display[x])
-    ## For Marital Status
-    mar_display = ('No','Yes')
-    mar_options = list(range(len(mar_display)))
-    mar = st.selectbox("Marital Status", mar_options, format_func=lambda x: mar_display[x])
-    ## No of dependets
-    dep_display = ('No','One','Two','More than Two')
-    dep_options = list(range(len(dep_display)))
-    dep = st.selectbox("Dependents",  dep_options, format_func=lambda x: dep_display[x])
-    ## For edu
-    edu_display = ('Not Graduate','Graduate')
-    edu_options = list(range(len(edu_display)))
-    edu = st.selectbox("Education",edu_options, format_func=lambda x: edu_display[x])
-    ## For emp status
-    emp_display = ('Job','Business')
-    emp_options = list(range(len(emp_display)))
-    emp = st.selectbox("Employment Status",emp_options, format_func=lambda x: emp_display[x])
-    ## For Property status
-    prop_display = ('Rural','Semi-Urban','Urban')
-    prop_options = list(range(len(prop_display)))
-    prop = st.selectbox("Property Area",prop_options, format_func=lambda x: prop_display[x])
-    ## For Credit Score
-    cred_display = ('Between 300 to 500','Above 500')
-    cred_options = list(range(len(cred_display)))
-    cred = st.selectbox("Credit Score",cred_options, format_func=lambda x: cred_display[x])
-    ## Applicant Monthly Income
-    mon_income = st.number_input("Applicant's Monthly Income($)",value=0)
-    ## Co-Applicant Monthly Income
-    co_mon_income = st.number_input("Co-Applicant's Monthly Income($)",value=0)
-   
-        print(features)
-        prediction = model.predict(features)
-        lc = [str(i) for i in prediction]
-        ans = int("".join(lc))
-        if ans == 0:
-            st.error(
-                "Hello: " + fn +" || "
-                "Account number: "+account_no +' || '
-                'According to our Calculations, you will not get the loan from Bank'
-            )
-        else:
-            st.success(
-                "Hello: " + fn +" || "
-                "Account number: "+account_no +' || '
-                'Congratulations!! you will get the loan from Bank'
-            )
-run()
-``
+## Usage:-
+
+- Clone my repository.
+- Open CMD in working directory.
+- Run following command.
+
+  ```
+  pip install -r requirements.txt
+  ```
+- `Bank_Loan_Prediction.py` is the main Python file of Streamlit App. 
+- To run app, write following command in CMD.
+
+  ```
+  streamlit run Bank_Loan_Prediction.py
+  ```
+- `Str_Loan_ML.ipynb` is the notebook file of the Data pre-processing & Machine Learning.
+- `Loan_Data` contains the Dataset of this project.
+- For more explanation of this project see the tutorial on Machine Learning Hub YouTube channel.
+
+## Screenshots
+
+<img src="https://github.com/Spidy20/Streamlit_Bank_Loan_Prediction/blob/master/sc1.png">
+<img src="https://github.com/Spidy20/Streamlit_Bank_Loan_Prediction/blob/master/sc2.png">
+<img src="https://github.com/Spidy20/Streamlit_Bank_Loan_Prediction/blob/master/sc3.png">
+
+## Just follow☝️ me and Star⭐ my repository 
+
+# [Buy me a Coffee☕](https://www.buymeacoffee.com/spidy20)
+## [Donate me on PayPal(It will inspire me to do more projects)](https://www.paypal.me/spidy1820)
+## [Follow us on Instagram for Machine Learning Guidelines & Path](https://www.instagram.com/machine_learning_hub.ai/)
+## [Buy Python & ML projects for students at lower rate](https://www.instamojo.com/kushalbhavsar1820)
